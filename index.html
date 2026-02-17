@@ -286,9 +286,40 @@
         padding: 20px;
     }
 
-    .foto-slime-grande {
+    .foto-slime-grande 
         max-height: 400
 
+        /* --- ESTILOS PARA EL SLIDER --- */
+     .banner-principal {
+     position: relative;
+     height: 400px; /* Ajusta la altura según tus imágenes */
+     }
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Efecto de desvanecimiento suave */
+    object-fit: cover;
+}
+
+.slide.activo {
+    opacity: 1;
+}
+
+/* Ajuste para celular */
+@media (max-width: 768px) {
+    .banner-principal { height: 250px; }
+}
     </style>
 </head>
 <body>
@@ -319,7 +350,7 @@ La opción segura y creativa para sus niños 👨‍👩‍👧‍👦🎁 ♥ .
 
 <div  class="banner-principal">
     <div class="slider">
-        <img src="bannerlula.jpeg" class="slide activo">
+        <img src="banner lula.jpeg" class="slide activo">
         <img src="niñaslime.jpg" class="slide">
         <img src="bannernew.jpg " class="slide">
     </div>
@@ -436,7 +467,23 @@ function cerrarVideo() {
     iframe.src = "";
     modal.style.display = 'none';
 }
-</script>
+let indice = 0;
+const slides = document.querySelectorAll('.slide');
+
+function cambiarSlide() {
+    // Quitamos la clase 'activo' de la imagen actual
+    slides[indice].classList.remove('activo');
+    
+    // Pasamos a la siguiente (y si es la última, volvemos a la primera)
+    indice = (indice + 1) % slides.length;
+    
+    // Añadimos la clase 'activo' a la nueva imagen
+    slides[indice].classList.add('activo');
+}
+
+ // Iniciar el cambio automático cada 3 segundos
+ setInterval(cambiarSlide, 3000);
+ </script>
 
 </body>
 </html>
