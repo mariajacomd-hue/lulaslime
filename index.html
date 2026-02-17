@@ -246,7 +246,7 @@
         .contacto-info-final { background: white; padding: 50px 20px; border-top: 4px solid var(--rosa-suave); }
 
         /* --- RESPONSIVE CELULAR --- */
-@media (max-width: 768px) {
+@media (max-width: 768px) { 
 
     .header-lula {
         flex-direction: column;
@@ -286,15 +286,15 @@
         padding: 20px;
     }
 
-    .foto-slime-grande 
-        max-height: 400
+    .foto-slime-grande {
+     max-height: 400px; }
 
         /* --- ESTILOS PARA EL SLIDER --- */
      .banner-principal {
      position: relative;
      height: 400px; /* Ajusta la altura según tus imágenes */
      }
-
+    
 .slider {
     position: relative;
     width: 100%;
@@ -320,7 +320,9 @@
 @media (max-width: 768px) {
     .banner-principal { height: 250px; }
 }
+}
     </style>
+
 </head>
 <body>
 
@@ -468,7 +470,7 @@ function cerrarVideo() {
     modal.style.display = 'none';
 }
 let indice = 0;
-const slides = document.querySelectorAll('.slide');
+const slides = document.querySelectorAll('slide');
 
 function cambiarSlide() {
     // Quitamos la clase 'activo' de la imagen actual
